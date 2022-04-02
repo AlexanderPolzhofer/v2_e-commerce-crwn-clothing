@@ -6,7 +6,7 @@ import NavigationBar from './routes/navbar/NavigationBar.jsx';
 
 import ShopPage from './routes/shop/ShopPage.jsx';
 
-import SignIn from './routes/signin/SignIn.jsx';
+import Authentication from './routes/authentication/Authentication.jsx';
 
 const App = () => {
 
@@ -15,7 +15,7 @@ const App = () => {
       <Route path='/' element={<NavigationBar />}>
         <Route index element={<Home />} />
         <Route path='shop' element={<ShopPage />} />
-        <Route path='signIn' element={<SignIn />} />
+        <Route path='auth' element={<Authentication />} />
       </Route>
     </Routes>);
 }
