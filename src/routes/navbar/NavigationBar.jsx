@@ -12,11 +12,10 @@ import './navigation.styles.scss';
 
 const NavigationBar = () => {
 
-    const { currentUser, setCurrentUser } = useContext(UserContext);
+    const { currentUser } = useContext(UserContext);
 
     const signOutHandler = async () => {
         await signOutUserAuth(currentUser);
-        setCurrentUser(null);
     };
 
     return (
