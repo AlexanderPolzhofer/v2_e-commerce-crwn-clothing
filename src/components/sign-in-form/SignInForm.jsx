@@ -1,7 +1,5 @@
 import { useState } from 'react';
 
-import { onAuthStateChangedListener } from '../../utils/firebase/firebase.utils';
-
 import {
     signInWithGooglePopup,
     signInAuthWithEmailAndPassword
@@ -32,8 +30,7 @@ const SignInForm = () => {
         event.preventDefault();
 
         try {
-            const { user } = await signInAuthWithEmailAndPassword(email, password);
-            onAuthStateChangedListener(user);
+            await signInAuthWithEmailAndPassword(email, password);
             setFormFields(defaultFormfields);
         } catch (error) {
 

@@ -14,10 +14,6 @@ const NavigationBar = () => {
 
     const { currentUser } = useContext(UserContext);
 
-    const signOutHandler = async () => {
-        await signOutUserAuth(currentUser);
-    };
-
     return (
         <Fragment>
             <div className='navigation'>
@@ -30,7 +26,7 @@ const NavigationBar = () => {
                     </Link>
                     {
                         currentUser ?
-                            (<span className='nav-link' onClick={signOutHandler}>
+                            (<span className='nav-link' onClick={signOutUserAuth}>
                                 SIGN OUT
                             </span>) : (<Link className='nav-link' to='/auth'>
                                 <span>SIGN IN</span>
