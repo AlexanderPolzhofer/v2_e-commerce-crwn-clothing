@@ -8,12 +8,15 @@ import { UserContextProvider } from './components/contexts/UserContext';
 import App from './App';
 
 import reportWebVitals from './reportWebVitals';
+import { ProductsContextProvider } from './components/contexts/ProductsContext';
 
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
       <UserContextProvider>
-        <App />
+        <ProductsContextProvider>
+          <App />
+        </ProductsContextProvider>
       </UserContextProvider>
     </BrowserRouter>
   </React.StrictMode>,
