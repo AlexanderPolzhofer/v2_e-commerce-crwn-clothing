@@ -4,22 +4,22 @@ import ReactDOM from 'react-dom';
 import './index.scss';
 
 import { BrowserRouter } from 'react-router-dom';
-import { UserContextProvider } from './components/contexts/UserContext';
+import { UserContextProvider } from './components/contexts/User.context';
 import App from './App';
 
 import reportWebVitals from './reportWebVitals';
-import { ProductsContextProvider } from './components/contexts/ProductsContext';
-import { CartContextProvider } from './components/contexts/CartContext';
+import { CategoriesProvider } from './components/contexts/Categories.context';
+import { CartContextProvider } from './components/contexts/Cart.context';
 
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
       <UserContextProvider>
-        <ProductsContextProvider>
+        <CategoriesProvider>
           <CartContextProvider>
             <App />
           </CartContextProvider>
-        </ProductsContextProvider>
+        </CategoriesProvider>
       </UserContextProvider>
     </BrowserRouter>
   </React.StrictMode>,

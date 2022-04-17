@@ -1,18 +1,16 @@
 import { createContext, useEffect, useState } from "react";
-import { addCollectionAndDocuments, getCategoriesAndDocuments } from "../../utils/firebase/firebase.utils";
+import { getCategoriesAndDocuments } from "../../utils/firebase/firebase.utils";
 
-import PRODUCTS from './../../shop-data';
+import PRODUCTS from '../../shop-data';
 
-export const ProductsContext = createContext({
-    products: []
+export const CategoriesContext = createContext({
+    categoriesMap: {},
 });
 
-export const ProductsContextProvider = ({ children }) => {
-    const [products, setProducts] = useState([]);
+export const CategoriesProvider = ({ children }) => {
+    const [categoriesMap, setCategoriesMap] = useState({});
 
     // add collection and documents to firestore
-
-
     /* useEffect(() => {
             addCollectionAndDocuments('categories', PRODUCTS);
             console.log('done')
@@ -28,10 +26,10 @@ export const ProductsContextProvider = ({ children }) => {
         getCategoriesMap();
     }, []);
 
-    const value = { products }
+    const value = { categoriesMap }
 
-    return <ProductsContext.Provider value={value}>
+    return <CategoriesContext.Provider value={value}>
         {children}
-    </ProductsContext.Provider>
+    </CategoriesContext.Provider>
 
 };

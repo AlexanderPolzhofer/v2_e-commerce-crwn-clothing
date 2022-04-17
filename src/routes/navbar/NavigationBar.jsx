@@ -7,8 +7,8 @@ import CartDropdown from '../../components/cart-dropdown/CartDropdown';
 
 import CartIcon from '../../components/cart-icon/CartIcon';
 
-import { UserContext } from '../../components/contexts/UserContext';
-import { CartContext } from '../../components/contexts/CartContext';
+import { UserContext } from '../../components/contexts/User.context';
+import { CartContext } from '../../components/contexts/Cart.context';
 import { signOutUserAuth } from '../../utils/firebase/firebase.utils';
 
 import './navigation.styles.scss';
