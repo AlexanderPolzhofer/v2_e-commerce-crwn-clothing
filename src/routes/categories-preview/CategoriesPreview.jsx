@@ -20,7 +20,6 @@ const ShopPage = () => {
                 }
                 )
             }
-            )
         </Fragment>)
 }
 
