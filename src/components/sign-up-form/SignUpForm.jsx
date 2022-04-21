@@ -4,7 +4,7 @@ import {
     createAuthUserWithEmailAndPassword,
     createUserDocumentFromAuth
 } from '../../utils/firebase/firebase.utils';
-import Button from '../button/Button';
+import Button, { BUTTON_TYPES } from '../button/Button';
 
 import FormInput from '../form-input/FormInput';
 
@@ -84,6 +84,7 @@ const SignUpForm = () => {
                     onChange={handleChange}
                     value={confirmPassword} />
                 <Button
+                    buttonType={BUTTON_TYPES.base}
                     type='submit'>
                     Sign Up
                 </Button>
