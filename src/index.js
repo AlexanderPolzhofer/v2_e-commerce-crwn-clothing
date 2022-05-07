@@ -10,16 +10,13 @@ import App from './App';
 
 import reportWebVitals from './reportWebVitals';
 
-import { CartContextProvider } from './components/contexts/Cart.context';
 import { store } from './store/store';
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
       <BrowserRouter>
-        <CartContextProvider>
-          <App />
-        </CartContextProvider>
+        <App />
       </BrowserRouter>
     </Provider>
   </React.StrictMode>,

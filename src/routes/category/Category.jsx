@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Fragment } from 'react';
 import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 
@@ -8,17 +8,17 @@ import './Category.styles.scss';
 
 const Category = () => {
 
-    const { category } = useParams();
-    const categories = useSelector(selectCategoriesMap)
+    const { category } = useParams()
+    const categoriesMap = useSelector(selectCategoriesMap)
 
-    const [products, setProducts] = useState([]);
+    const [products, setProducts] = useState(categoriesMap[category])
 
     useEffect(() => {
-        setProducts(categories[category]);
-    }, [category, categories])
+        setProducts(categoriesMap[category])
+    }, [category, categoriesMap])
 
     return (
-        <>
+        <Fragment>
             <div className="category-title">
                 {category.toUpperCase()}
             </div>
@@ -30,7 +30,7 @@ const Category = () => {
                             product={product}
                         />)}
             </div>
-        </>
+        </Fragment>
 
     )
 

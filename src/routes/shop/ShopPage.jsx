@@ -10,15 +10,15 @@ import { setCategories } from './../../store/categories/category.action';
 
 const ShopPage = () => {
 
-    const dispatch = useDispatch();
+    const dispatch = useDispatch()
 
     useEffect(() => {
         const getCategoriesMap = async () => {
-            const categoriesArray = await getCategoriesAndDocuments('categories');
+            const categoriesArray = await getCategoriesAndDocuments('categories')
 
-            dispatch(setCategories(categoriesArray));
+            dispatch(setCategories(categoriesArray))
         }
-        getCategoriesMap();
+        getCategoriesMap()
     }, []);
 
     return (
