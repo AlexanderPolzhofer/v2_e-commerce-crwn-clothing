@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { selectCurrentUser } from './../../store/user/user.selector';
 
 import { Outlet, Link } from 'react-router-dom';
@@ -9,17 +9,19 @@ import { ReactComponent as CrwnLogo } from '../../assets/crown.svg';
 import CartDropdown from '../../components/cart-dropdown/CartDropdown';
 
 import CartIcon from '../../components/cart-icon/CartIcon';
-
-import { signOutUserAuth } from '../../utils/firebase/firebase.utils';
+import { selectIsCartOpen } from '../../store/cart/cart.selector';
+import { signOutStart } from '../../store/user/user.action';
 
 import './navigation.styles.scss';
-import { selectIsCartOpen } from '../../store/cart/cart.selector';
+
 
 const NavigationBar = () => {
 
+    const dispatch = useDispatch();
     const currentUser = useSelector(selectCurrentUser);
+    const isCartOpen = useSelector(selectIsCartOpen);
 
-    const isCartOpen = useSelector(selectIsCartOpen)
+    const signOutUser = () => dispatch(signOutStart());
 
     return (
         <Fragment>
@@ -33,7 +35,7 @@ const NavigationBar = () => {
                     </Link>
                     {
                         currentUser ?
-                            (<span className='nav-link' onClick={signOutUserAuth}>
+                            (<span className='nav-link' onClick={signOutUser}>
                                 SIGN OUT
                             </span>) : (<Link className='nav-link' to='/auth'>
                                 <span>SIGN IN</span>
