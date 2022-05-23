@@ -9,10 +9,8 @@ import {
   store,
   persistor
 } from './store/store';
-
-import { Elements } from '@stripe/react-stripe-js';
 import { stripePromise } from './utils/stripe/stripe.utils';
-
+import { Elements } from '@stripe/react-stripe-js';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import './index.scss';

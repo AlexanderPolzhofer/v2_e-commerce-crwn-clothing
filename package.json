@@ -1,6 +1,7 @@
 {
   "name": "v2-crwn-clothing",
   "version": "0.1.0",
+  "homepage": "https://crwn-clothing-poal-v2.netlify.app",
   "private": true,
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.1",
