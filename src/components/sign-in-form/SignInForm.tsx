@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useState, FormEvent, ChangeEvent } from 'react';
+import { AuthError, AuthErrorCodes } from 'firebase/auth';
 import { useDispatch } from 'react-redux';
 
 import Button, { BUTTON_TYPES } from '../button/Button';
@@ -21,32 +22,20 @@ const SignInForm = () => {
     const [formFields, setFormFields] = useState(defaultFormfields);
     const { email, password } = formFields;
 
-    const handleChange = (event) => {
+    const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
         const { name, value } = event.target;
         setFormFields({ ...formFields, [name]: value })
     };
 
-    const handleSubmit = async (event) => {
+    const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
 
         try {
             dispatch(emailSignInStart(email, password));
             setFormFields(defaultFormfields);
         } catch (error) {
-
-            switch (error.code) {
-                case 'auth/wrong-password': {
-                    alert('incorrect password for email');
-                    break;
-                }
-                case 'auth/user-not-found': {
-                    alert('this user was not found');
-                    break;
-                }
-                default: {
-                    console.error(error)
-                }
-            }
+            if ((error as AuthError).code === AuthErrorCodes.INVALID_AUTH)
+                console.log('user sign in failed', error)
         }
     };
 
@@ -95,3 +84,17 @@ const SignInForm = () => {
 };
 
 export default SignInForm;
+
+// switch (error.code) {
+//     case 'auth/wrong-password': {
+//         alert('incorrect password for email');
+//         break;
+//     }
+//     case 'auth/user-not-found': {
+//         alert('this user was not found');
+//         break;
+//     }
+//     default: {
+//         console.error(error)
+//     }
+// }

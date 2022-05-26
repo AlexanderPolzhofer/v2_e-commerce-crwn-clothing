@@ -1,6 +1,8 @@
-import { useState } from 'react';
+import { useState, ChangeEvent, FormEvent } from 'react';
 import { useDispatch } from 'react-redux';
 import { signUpStart } from '../../store/user/user.action';
+
+import { AuthError, AuthErrorCodes } from 'firebase/auth';
 
 import Button, { BUTTON_TYPES } from '../button/Button';
 
@@ -22,12 +24,12 @@ const SignUpForm = () => {
     const [formFields, setFormFields] = useState(defaultFormfields);
     const { displayName, email, password, confirmPassword } = formFields;
 
-    const handleChange = (event) => {
+    const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
         const { name, value } = event.target;
         setFormFields({ ...formFields, [name]: value })
     }
 
-    const handleSubmit = async (event) => {
+    const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
 
         if (password !== confirmPassword) {
@@ -39,7 +41,8 @@ const SignUpForm = () => {
             dispatch(signUpStart(email, password, displayName))
             setFormFields(defaultFormfields);
         } catch (error) {
-            console.error(error)
+            if ((error as AuthError).code === AuthErrorCodes.CREDENTIAL_MISMATCH)
+                console.error(error)
         }
     }
 
