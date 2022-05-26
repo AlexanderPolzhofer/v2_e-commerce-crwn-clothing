@@ -20,7 +20,7 @@ export type SignOutStart = Action<USER_ACTION_TYPES.SIGN_OUT_START>;
 
 export type SignOutSuccess = Action<USER_ACTION_TYPES.SIGN_OUT_SUCCESS>;
 
-export type SignOutFailed = Action<USER_ACTION_TYPES.SIGN_OUT_FAILED>;
+export type SignOutFailed = ActionWithPayload<USER_ACTION_TYPES.SIGN_OUT_FAILED, Error>;
 
 export type SignInSuccess = ActionWithPayload<USER_ACTION_TYPES.SIGN_IN_SUCCESS, UserData>;
 
