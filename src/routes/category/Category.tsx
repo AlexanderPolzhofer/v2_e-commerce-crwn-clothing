@@ -12,15 +12,19 @@ import './Category.styles.scss';
 
 const Category = () => {
 
-    const { category } = useParams()
-    const categoriesMap = useSelector(selectCategoriesMap)
-    const isLoading = useSelector(selectCategoriesIsLoading)
+    type CategoryRouteParams = {
+        category: string;
+    }
 
-    const [products, setProducts] = useState(categoriesMap[category])
+    const { category } = useParams<keyof CategoryRouteParams>() as CategoryRouteParams;
+    const categoriesMap = useSelector(selectCategoriesMap);
+    const isLoading = useSelector(selectCategoriesIsLoading);
+
+    const [products, setProducts] = useState(categoriesMap[category]);
 
     useEffect(() => {
         setProducts(categoriesMap[category])
-    }, [category, categoriesMap])
+    }, [category, categoriesMap]);
 
     return (
         <Fragment>
@@ -43,6 +47,6 @@ const Category = () => {
 
     )
 
-}
+};
 
 export default Category;
