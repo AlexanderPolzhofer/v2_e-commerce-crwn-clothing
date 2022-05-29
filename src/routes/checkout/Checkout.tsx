@@ -8,29 +8,29 @@ import {
 import CheckoutItem from '../../components/checkout-item/CheckoutItem';
 import PaymentForm from '../../components/payment-form/payment-form.component';
 
-import './checkout.styles.scss';
+import { CheckoutContainer, CheckoutHeader, Total } from './checkout.styles';
 
 const Checkout = () => {
 
     const cartItems = useSelector(selectCartItems)
     const cartTotal = useSelector(selectCartTotal)
 
-    return (<div className='checkout-container'>
-        <div className='checkout-header'>
+    return (<CheckoutContainer>
+        <CheckoutHeader>
             <span>Description</span>
             <span>Name</span>
             <span>Quantity</span>
             <span>Price</span>
             <span>Remove</span>
-        </div>
+        </CheckoutHeader>
         {cartItems.map((cartItem) =>
             <CheckoutItem
                 key={cartItem.id}
                 cartItem={cartItem}
             />)}
-        <span className='total'>Total: ${cartTotal}</span>
+        <Total>Total: ${cartTotal}</Total>
         <PaymentForm />
-    </div>)
+    </CheckoutContainer>)
 
 }
 

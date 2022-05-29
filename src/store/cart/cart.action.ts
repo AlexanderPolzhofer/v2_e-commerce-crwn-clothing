@@ -1,6 +1,6 @@
 import { CategoryItem } from "../categories/category.types";
 import { CART_ACTION_TYPES, CartItem } from "./cart.types";
-import { createAction, withMatcher, Action, ActionWithPayload } from "../../utils/reducer/reducer.utils";
+import { createAction, withMatcher, ActionWithPayload } from "../../utils/reducer/reducer.utils";
 
 
 const addCartItem = (cartItems: CartItem[], productToAdd: CategoryItem): CartItem[] => {
@@ -41,7 +41,7 @@ export const setIsCartOpen = withMatcher((bool: boolean): SetIsCartOpen => creat
 
 export const setCartItems = withMatcher((cartItems: CartItem[]): SetCartItems => createAction(CART_ACTION_TYPES.SET_CART_ITEMS, cartItems));
 
-export const addItemToCart = (cartItems: CartItem[], productToAdd: CartItem) => {
+export const addItemToCart = (cartItems: CartItem[], productToAdd: CategoryItem) => {
     const newCartItems = (addCartItem(cartItems, productToAdd))
     return setCartItems(newCartItems);
 }

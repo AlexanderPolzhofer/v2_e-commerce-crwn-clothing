@@ -1,15 +1,28 @@
+import { FC } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 
 import Button, { BUTTON_TYPES } from "../button/Button";
 
 import { addItemToCart } from "../../store/cart/cart.action";
 
-import './product-card.styles.scss';
 import { selectCartItems } from "../../store/cart/cart.selector";
 
-const ProductCard = ({ product }) => {
+import {
+    ProductCardContainer,
+    Footer,
+    Name,
+    Price
+} from "./product-card.styles";
 
-    const { name, price, imageUrl } = product
+import { CategoryItem } from '../../store/categories/category.types';
+
+type ProductCardProps = {
+    product: CategoryItem;
+}
+
+const ProductCard: FC<ProductCardProps> = ({ product }) => {
+
+    const { name, price, imageUrl } = product;
 
     const dispatch = useDispatch()
     const cartItems = useSelector(selectCartItems)
@@ -17,18 +30,18 @@ const ProductCard = ({ product }) => {
     const addProductToCart = () => dispatch(addItemToCart(cartItems, product))
 
     return (
-        <div className="product-card-container">
+        <ProductCardContainer>
             <img src={imageUrl} alt={`${name}`} />
-            <div className="footer">
-                <span className="name">{name}</span>
-                <span className="price">{price}</span>
-            </div>
+            <Footer>
+                <Name>{name}</Name>
+                <Price>{price}</Price>
+            </Footer>
             <Button
                 buttonType={BUTTON_TYPES.inverted}
                 onClick={addProductToCart}
             >ADD TO CART
             </Button>
-        </div>)
+        </ProductCardContainer>)
 }
 
 export default ProductCard;

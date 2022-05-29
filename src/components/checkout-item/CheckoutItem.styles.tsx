@@ -21,7 +21,7 @@ img {
 }
 `;
 
-export const Name = styled.span`
+export const BaseSpan = styled.span`
 width: 23%;
 `;
 
@@ -40,4 +40,9 @@ margin: 0 10px;
 
 export const Arrow = styled.div`
 cursor: pointer;
+`;
+
+export const RemoveButton = styled.div`
+  padding-left: 12px;
+  cursor: pointer;
 `;

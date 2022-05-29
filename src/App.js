@@ -2,13 +2,13 @@ import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { Routes, Route } from 'react-router-dom';
 
-import Home from './routes/home/Home.jsx';
-import NavigationBar from './routes/navbar/NavigationBar.jsx';
-import ShopPage from './routes/shop/ShopPage.jsx';
-import Authentication from './routes/authentication/Authentication.jsx';
-import Checkout from './routes/checkout/Checkout.jsx';
+import Home from './routes/home/Home';
+import NavigationBar from './routes/navbar/NavigationBar';
+import ShopPage from './routes/shop/ShopPage';
+import Authentication from './routes/authentication/Authentication';
+import Checkout from './routes/checkout/Checkout';
 
-import { checkUserSession } from './store/user/user.action.js';
+import { checkUserSession } from './store/user/user.action';
 
 const App = () => {
 
@@ -16,7 +16,7 @@ const App = () => {
 
   useEffect(() => {
     dispatch(checkUserSession())
-  }, []);
+  }, [dispatch]);
 
   return (
     <Routes>

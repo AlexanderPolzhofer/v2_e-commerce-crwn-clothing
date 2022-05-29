@@ -5,8 +5,8 @@ import {
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 
-import CategoriesPreview from '../../routes/categories-preview/CategoriesPreview';
-import Category from '../../routes/category/Category';
+import CategoriesPreview from '../categories-preview/CategoriesPreview';
+import Category from '../category/Category';
 import { fetchCategoriesStart } from '../../store/categories/category.action';
 
 const ShopPage = () => {
@@ -15,7 +15,7 @@ const ShopPage = () => {
 
     useEffect(() => {
         dispatch(fetchCategoriesStart());
-    }, []);
+    }, [dispatch]);
 
     return (
         <Routes>

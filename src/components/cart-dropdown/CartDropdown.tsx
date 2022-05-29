@@ -13,8 +13,8 @@ import {
 
 const CartDropdown = () => {
 
-    const cartItems = useSelector(selectCartItems)
-    const navigate = useNavigate()
+    const cartItems = useSelector(selectCartItems);
+    const navigate = useNavigate();
 
     const goToCheckOutHandler = () => {
         navigate('/checkout')
