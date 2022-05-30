@@ -1,4 +1,4 @@
-import { Fragment } from 'react';
+import { Fragment, lazy } from 'react';
 
 import { useSelector, useDispatch } from 'react-redux';
 import { selectCurrentUser } from '../../store/user/user.selector';
@@ -6,7 +6,6 @@ import { selectCurrentUser } from '../../store/user/user.selector';
 import { Outlet } from 'react-router-dom';
 
 import { ReactComponent as CrwnLogo } from '../../assets/crown.svg';
-import CartDropdown from '../../components/cart-dropdown/CartDropdown';
 
 import CartIcon from '../../components/cart-icon/CartIcon';
 import { selectIsCartOpen } from '../../store/cart/cart.selector';
@@ -14,6 +13,7 @@ import { signOutStart } from '../../store/user/user.action';
 
 import { Navigation, LogoContainer, NavLinksContainer, NavLink } from './navigation-bar.styles';
 
+const CartDropdown = lazy(() => import('../../components/cart-dropdown/CartDropdown'));
 
 const NavigationBar = () => {
 

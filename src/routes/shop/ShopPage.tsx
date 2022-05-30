@@ -15,7 +15,7 @@ const ShopPage = () => {
 
     useEffect(() => {
         dispatch(fetchCategoriesStart());
-    }, [dispatch]);
+    }, []);
 
     return (
         <Routes>
