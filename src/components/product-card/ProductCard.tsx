@@ -11,7 +11,8 @@ import {
     ProductCardContainer,
     Footer,
     Name,
-    Price
+    Price,
+    AddButton
 } from "./product-card.styles";
 
 import { CategoryItem } from '../../store/categories/category.types';
@@ -36,11 +37,12 @@ const ProductCard: FC<ProductCardProps> = ({ product }) => {
                 <Name>{name}</Name>
                 <Price>{price}</Price>
             </Footer>
-            <Button
+            <AddButton
                 buttonType={BUTTON_TYPES.inverted}
                 onClick={addProductToCart}
-            >ADD TO CART
-            </Button>
+            >
+                ADD TO CART
+            </AddButton>
         </ProductCardContainer>)
 }
 

@@ -30,6 +30,11 @@ h2 {
     font-size: 22px;
     color: #4a4a4a;
     text-transform: uppercase;
+
+    @media screen and (max-width: 800px){
+        font-size: 15px;
+        margin: 0 1px 0;
+    }
 }
 
 p {
@@ -59,6 +64,10 @@ overflow: hidden;
 
        ${DirectoryItemBodyContainer} {
             opacity: 0.9;
+
+            @media screen and (max-width: 800px) {
+                opacity: unset;
+            }
         }
     }
 

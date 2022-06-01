@@ -7,6 +7,10 @@ body {
     font-family: 'Encode Sans Condensed', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+
+    @media screen and (max-width: 800px){
+        padding: 10px 20px;
+    }
   }
   
   code {

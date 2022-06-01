@@ -9,6 +9,10 @@ padding: 15px 0;
 font-size: 20px;
 align-items: center;
 justify-content: space-between;
+
+@media screen and (max-width: 800px) {
+  font-size: 18px;
+}
 `;
 
 export const ImageContainer = styled.div`
@@ -23,23 +27,43 @@ img {
 
 export const BaseSpan = styled.span`
 width: 23%;
+
+@media screen and (max-width: 800px) {
+  width: 13%;
+}
 `;
 
 export const Quantity = styled.span`
 width: 23%;
 display: flex;
+
+@media screen and (max-width: 800px) {
+  width: 13%;
+}
 `;
 
 export const Price = styled.span`
 width: 23%;
+
+@media screen and (max-width: 800px) {
+  width: 13%;
+}
 `;
 
 export const Value = styled.span`
 margin: 0 10px;
+
+@media screen and (max-width: 800px) {
+  width: 13%;
+}
 `;
 
 export const Arrow = styled.div`
 cursor: pointer;
+
+@media screen and (max-width: 800px) {
+  width: 13%;
+}
 `;
 
 export const RemoveButton = styled.div`
