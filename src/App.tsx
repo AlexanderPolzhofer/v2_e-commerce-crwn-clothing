@@ -18,7 +18,7 @@ const App = () => {
 
   useEffect(() => {
     dispatch(checkUserSession())
-  }, []);
+  }, [dispatch]);
 
   return (
     <Suspense fallback={<Spinner />}>
