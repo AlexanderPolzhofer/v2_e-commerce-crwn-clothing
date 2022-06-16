@@ -1,6 +1,7 @@
 # v2-crwn-clothing-e-commerce
 
 This is the updated version of the crwn-clothing e-commerce project. 
+https://crwn-clothing-poal-v2.netlify.app
 
 ## The topics covered will be:
 
